@@ -1,0 +1,61 @@
+<h2>Programming Books List!</h2>
+
+<!-- event binding click and property binding disabled -->
+<button (click)="handleClick()">Show BooksX</button>
+<!-- Two way binding or listening using ngModel-->
+<input type="text" [(ngModel)]="nameInput" />
+<!-- showing -->
+<p>name: {{ nameInput }}</p>
+
+<button (click)="handleClick()" [disabled]="isShowing">Show Books</button>
+
+<input type="text" (input)="handleInput($event)" />
+<p>nameHandleInput: {{ nameHandleInput }}</p>
+
+<ul>
+  <li>
+    {{ name }} by {{ author }}
+    <h2>Image</h2>
+    <img src="{{ imageMonkey }}" alt="{{ name }}" />
+  </li>
+  <li>
+    {{ name2 }} by {{ author2 }}
+    <h2>Image</h2>
+    <!--property binding as function toogle  -->
+    <img [src]="imageDonkey" [alt]="name2" />
+  </li>
+</ul>
+
+<!-- ===========DIRECTIVE============= -->
+<br />
+
+<H1>DIRECTIVE</H1>
+<button (click)="toogleAnimal()">Directive Show Animal#1</button>
+<button (click)="isDirective = !isDirective">
+  <span *ngIf="isDirective">Directive Show Animal#2</span>
+  <span *ngIf="!isDirective">Directive Hide Animal#2</span>
+</button>
+
+<ul *ngIf="isDirective">
+  <li>
+    {{ name }} by {{ author }}
+    <h2>Image</h2>
+    <img src="{{ imageMonkey }}" alt="{{ name }}" />
+  </li>
+  <li>
+    {{ name2 }} by {{ author2 }}
+    <h2>Image</h2>
+    <!--property binding as function toogle  -->
+    <img [src]="imageDonkey" [alt]="name2" />
+  </li>
+</ul>
+
+<!-- ===========ngFOR AND PIPE============= -->
+
+<H1>ngFOR</H1>
+<ul>
+  <ng-container *ngFor="let char of charCyberPunk; let i = index">
+    <app-book (emitCharacter)="addToCard($event)" [charCyberPunk] = "char"></app-book>
+  </ng-container>
+</ul>
+

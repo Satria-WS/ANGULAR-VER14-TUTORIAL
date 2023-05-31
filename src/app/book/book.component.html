@@ -1,0 +1,19 @@
+<li class="book">
+  <img
+    style="width: 225px; height: 225px"
+    [src]=" charCyberPunk.image "
+    [alt]="charCyberPunk.name"
+  />
+  <!-- pipe -->
+  <span>
+    Name: {{ charCyberPunk.name | titlecase }} Sex: {{ charCyberPunk.gender }}
+    {{ charCyberPunk.contract | currency }}
+  </span>
+  <br />
+  
+  <!-- Child to parent event -->
+
+  <button (click)="addToCard()">add to Hire</button>
+
+</li>
+
